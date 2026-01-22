@@ -5,10 +5,10 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const images = [
-  "/images/EARTHSERVELOGO.jpeg",
-  "/images/EARTHSERVEFLYER.jpeg",
-  "/images/EARTHSERVELOGO.jpeg",
-  "/images/EARTHSERVEFLYER.jpeg",
+  "/images/earth1.jpg",
+  "/images/earth2.jpg",
+  "/images/earth1.jpg",
+  "/images/earth2.jpg",
 ];
 
 export default function GallerySection() {

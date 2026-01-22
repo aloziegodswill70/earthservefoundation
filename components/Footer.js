@@ -17,7 +17,7 @@ export default function Footer() {
         <div>
           <Link href="/" className="flex items-center gap-3 mb-4">
             <Image
-              src="/images/EARTHSERVELOGO.jpeg"
+              src="/images/earth1.jpg"
               alt="EarthServe Foundation Logo"
               width={50}
               height={50}

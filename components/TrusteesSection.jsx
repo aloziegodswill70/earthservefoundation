@@ -7,22 +7,22 @@ const trustees = [
   {
     name: "Mr. Ebere Nwachukwu",
     role: "Chairman, Board of Trustees",
-    image: "/images/aiimg.jpeg",
+    image: "/images/aiimg.jpg",
   },
   {
     name: "Miss. Ebere",
     role: "Trustee",
-    image: "/images/aiimg.jpeg",
+    image: "/images/aiimg.jpg",
   },
   {
     name: "Dr. Godswill Alozie",
     role: "Trustee",
-    image: "/images/godswill.jpeg",
+    image: "/images/godswill.jpg",
   },
   {
     name: "Mr. Emeka",
     role: "Trustee",
-    image: "/images/aiimg.jpeg",
+    image: "/images/aiimg.jpg",
   },
 ];
 

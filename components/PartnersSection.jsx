@@ -3,19 +3,19 @@ import Image from "next/image";
 const partners = [
   {
     name: "National Youth Service Corps (NYSC)",
-    logo: "/images/nysc.jpeg",
+    logo: "/images/nysc.jpg",
   },
   {
     name: "National Environmental Standards & Regulations Enforcement Agency (NESREA)",
-    logo: "/images/EHC.jpeg",
+    logo: "/images/ehc.jpg",
   },
   {
     name: "Nigerian Conservation Foundation (NCF)",
-    logo: "/images/EARTHSERVELOGO.jpeg",
+    logo: "/images/earth1.jpg",
   },
   {
     name: "Global Cleaning Network",
-    logo: "/images/EARTHSERVEFLYER.jpeg",
+    logo: "/images/earth2.jpg",
   },
 ];
 

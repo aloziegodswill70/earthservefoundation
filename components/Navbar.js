@@ -24,7 +24,7 @@ export default function Navbar() {
         {/* Logo Image */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/images/EARTHSERVELOGO.jpeg"
+            src="/images/earth.jpg"
             alt="EarthServe Foundation Logo"
             width={48}
             height={48}
