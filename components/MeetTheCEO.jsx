@@ -5,7 +5,7 @@ export default function MeetTheCEO() {
     <section className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 px-6 items-center">
         <Image
-          src="/images/EARTHSERVELOGO.jpeg"
+          src="/images/aiimg.jpg"
           width={400}
           height={400}
           alt="CEO"

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import {
   Home,
-  Info,
   Layers,
   HeartHandshake,
   Phone,
@@ -11,37 +10,38 @@ import {
 
 export default function BottomNav() {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t shadow md:hidden">
-      <ul className="flex justify-around items-center py-2">
+    <nav
+      className="
+        fixed bottom-0 inset-x-0 z-[999]
+        bg-green-50 border-t border-green-200 shadow
+        md:hidden
+        pb-safe
+      "
+    >
+      <ul className="flex items-center justify-between px-4 py-2 max-w-md mx-auto">
 
         <BottomNavItem
           href="/"
           label="Home"
-          icon={<Home size={22} />}
-        />
-
-        <BottomNavItem
-          href="/about"
-          label="About"
-          icon={<Info size={22} />}
+          icon={<Home size={20} />}
         />
 
         <BottomNavItem
           href="/programs"
           label="Programs"
-          icon={<Layers size={22} />}
+          icon={<Layers size={20} />}
         />
 
         <BottomNavItem
           href="/get-involved"
-          label="Get Involved"
-          icon={<HeartHandshake size={22} />}
+          label="Involve"
+          icon={<HeartHandshake size={20} />}
         />
 
         <BottomNavItem
           href="/contact"
-          label="Contact"
-          icon={<Phone size={22} />}
+          label="Call"
+          icon={<Phone size={20} />}
         />
       </ul>
     </nav>
@@ -50,13 +50,13 @@ export default function BottomNav() {
 
 function BottomNavItem({ href, icon, label }) {
   return (
-    <li>
+    <li className="flex-1">
       <Link
         href={href}
-        className="flex flex-col items-center text-xs text-gray-600 hover:text-green-700 transition"
+        className="flex flex-col items-center justify-center text-[11px] text-gray-700 hover:text-green-700 transition"
       >
         {icon}
-        <span className="mt-1">{label}</span>
+        <span className="mt-1 leading-none">{label}</span>
       </Link>
     </li>
   );

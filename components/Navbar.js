@@ -19,15 +19,15 @@ export default function Navbar() {
 
   return (
     <header className="bg-white shadow sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
         
         {/* Logo Image */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/images/earth.jpg"
+            src="/images/earth2.jpg"
             alt="EarthServe Foundation Logo"
-            width={48}
-            height={48}
+            width={40}
+            height={40}
             priority
           />
           <span className="sr-only">EarthServe Foundation</span>
@@ -52,7 +52,7 @@ export default function Navbar() {
           className="md:hidden text-green-700"
           aria-label="Toggle Menu"
         >
-          {open ? <X size={28} /> : <Menu size={28} />}
+          {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 

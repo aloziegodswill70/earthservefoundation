@@ -16,6 +16,9 @@ export default function HomePage() {
       {/* HERO */}
       <HeroSection />
 
+       {/* MEET THE CEO */}
+      <MeetTheCEO />
+
       {/* CLIMATE CHANGE AWARENESS */}
       <ClimateChangeSection />
 
@@ -24,9 +27,6 @@ export default function HomePage() {
 
       {/* ENVIRONMENTAL AMBASSADORS */}
       <EnvironmentalAmbassadors />
-
-      {/* MEET THE CEO */}
-      <MeetTheCEO />
 
       {/* TRUSTEES */}
       <TrusteesSection />
