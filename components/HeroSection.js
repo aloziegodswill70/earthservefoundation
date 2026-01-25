@@ -1,115 +1,109 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const slides = [
-  {
-    title: "Empowering Youths",
-    text: "Raising leaders for a sustainable future through education and action.",
-  },
-  {
-    title: "Protecting the Planet",
-    text: "Climate action, environmental awareness, and community engagement.",
-  },
-  {
-    title: "Driving Sustainable Change",
-    text: "Creating impact today for a greener tomorrow.",
-  },
-];
+const fullTitle = "Earth Serve Foundation";
+const fullSubtitle = "Recycling for a Sustainable Future";
 
 export default function HeroSection() {
-  const [index, setIndex] = useState(0);
+  const [title, setTitle] = useState("");
+  const [subtitle, setSubtitle] = useState("");
 
+  // Typing effect
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % slides.length);
-    }, 5000);
-    return () => clearInterval(interval);
+    let tIndex = 0;
+    let sIndex = 0;
+
+    const titleInterval = setInterval(() => {
+      setTitle(fullTitle.slice(0, tIndex + 1));
+      tIndex++;
+      if (tIndex === fullTitle.length) clearInterval(titleInterval);
+    }, 80);
+
+    setTimeout(() => {
+      const subtitleInterval = setInterval(() => {
+        setSubtitle(fullSubtitle.slice(0, sIndex + 1));
+        sIndex++;
+        if (sIndex === fullSubtitle.length) clearInterval(subtitleInterval);
+      }, 60);
+    }, 1200);
+
+    return () => {
+      clearInterval(titleInterval);
+    };
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-earthGreen to-earthDark text-white">
-      {/* Ripple Background */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <motion.div
-          animate={{
-            scale: [1, 1.2, 1.4],
-            opacity: [0.35, 0.15, 0],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeOut",
-          }}
-          className="absolute w-[380px] h-[380px] md:w-[520px] md:h-[520px] rounded-full bg-white/20 blur-2xl"
+    <section className="relative min-h-[85vh] flex items-center overflow-hidden">
+      
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/images/impactes.jpg"
+          alt="Recycling for a Sustainable Future"
+          fill
+          priority
+          className="object-cover opacity-40"
         />
+        <div className="absolute inset-0 bg-gradient-to-b from-earthDark/80 via-earthDark/70 to-earthGreen/80" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-12 items-center">
-        {/* Text Section */}
-        <div className="text-center md:text-left">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -40 }}
-              transition={{ duration: 0.6 }}
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-3xl text-center md:text-left"
+        >
+          <h1 className="font-heading font-bold text-white
+                         text-3xl sm:text-4xl md:text-5xl lg:text-6xl
+                         leading-tight mb-6">
+            {title}
+            <span className="block text-earth-light mt-2">
+              {subtitle}
+            </span>
+          </h1>
+
+          <p className="text-white/90 text-base sm:text-lg md:text-xl max-w-xl mb-10">
+            We drive climate action through recycling innovation, environmental
+            education, and youth-led sustainability initiatives that protect
+            our planet for future generations.
+          </p>
+
+          {/* Animated Buttons */}
+          <div className="flex flex-col sm:flex-row gap-5 justify-center md:justify-start">
+            <motion.a
+              href="/get-involved"
+              animate={{ scale: [1, 1.05, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="px-8 py-4 bg-earthGreen text-white font-semibold rounded-full shadow-lg hover:bg-earthGreen/90 transition"
             >
-              <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">
-                {slides[index].title}
-              </h1>
+              Get Involved
+            </motion.a>
 
-              <p className="text-lg max-w-xl mb-8 text-white/90">
-                {slides[index].text}
-              </p>
-
-              <div className="flex gap-4 justify-center md:justify-start flex-wrap">
-                <a href="/get-involved" className="btn-primary">
-                  Get Involved
-                </a>
-                <a href="/about" className="btn-outline">
-                  Learn More
-                </a>
-              </div>
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Image Section */}
-        <div className="relative flex justify-center">
-          {/* Ripple Rings */}
-          <motion.div
-            className="absolute w-72 h-72 md:w-96 md:h-96 rounded-full border border-white/30"
-            animate={{ scale: [1, 1.15, 1.3], opacity: [0.6, 0.3, 0] }}
-            transition={{ duration: 3.5, repeat: Infinity }}
-          />
-          <motion.div
-            className="absolute w-60 h-60 md:w-80 md:h-80 rounded-full border border-white/20"
-            animate={{ scale: [1, 1.1, 1.25], opacity: [0.6, 0.25, 0] }}
-            transition={{ duration: 3, repeat: Infinity, delay: 0.4 }}
-          />
-
-          {/* Hero Image */}
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="relative z-10 rounded-full overflow-hidden shadow-2xl"
-          >
-            <Image
-              src="/images/earthserve.jpg"
-              alt="EarthServe Foundation Impact"
-              width={380}
-              height={380}
-              className="rounded-full object-cover"
-              priority
-            />
-          </motion.div>
-        </div>
+            <motion.a
+              href="/programs"
+              animate={{ opacity: [1, 0.6, 1] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="px-8 py-4 border-2 border-white text-white font-semibold rounded-full hover:bg-white hover:text-earthDark transition"
+            >
+              Our Programs
+            </motion.a>
+          </div>
+        </motion.div>
       </div>
+
+      {/* Scroll Hint */}
+      <motion.div
+        animate={{ y: [0, 12, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 text-sm"
+      >
+        Scroll ↓
+      </motion.div>
     </section>
   );
 }

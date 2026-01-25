@@ -9,7 +9,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const navLinks = [
-    { name: "Home", href: "/" },
+    { name: "Services", href: "/services" },
     { name: "About", href: "/about" },
     { name: "Programs", href: "/programs" },
     { name: "Impact", href: "/impact" },
@@ -18,38 +18,38 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="bg-white shadow sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-2 flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         
-        {/* Logo Image */}
-        <Link href="/" className="flex items-center gap-2">
+        {/* Brand */}
+        <Link href="/" className="flex items-center gap-3">
           <Image
-            src="/images/earth2.jpg"
+            src="/images/earthservelogo.jpg"
             alt="EarthServe Foundation Logo"
-            width={40}
-            height={40}
+            width={62}
+            height={62}
             priority
           />
-          <span className="sr-only">EarthServe Foundation</span>
         </Link>
 
-        {/* Desktop Menu */}
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-gray-700 hover:text-green-700 transition font-medium"
+              className="relative text-sm font-medium text-gray-700
+                         hover:text-green-700 transition"
             >
               {link.name}
             </Link>
           ))}
         </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle */}
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-green-700"
+          className="md:hidden text-gray-700 hover:text-green-700 transition"
           aria-label="Toggle Menu"
         >
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -58,14 +58,15 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white border-t">
-          <nav className="flex flex-col px-6 py-4 gap-4">
+        <div className="md:hidden border-t bg-white">
+          <nav className="max-w-7xl mx-auto px-6 py-6 flex flex-col gap-5">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="text-gray-700 hover:text-green-700 transition font-medium"
+                className="text-base font-medium text-gray-700
+                           hover:text-green-700 transition"
               >
                 {link.name}
               </Link>

@@ -5,11 +5,36 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const images = [
-  "/images/earth1.jpg",
-  "/images/earth2.jpg",
-  "/images/earth1.jpg",
-  "/images/earth2.jpg",
+  "/images/impactes.jpg",
+  "/images/impactes2.jpg",
+  "/images/impactes1.jpg",
+  "/images/impactes3.jpg",
 ];
+
+// Animation variants
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: -60, // fall from top
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+};
 
 export default function GallerySection() {
   const [index, setIndex] = useState(0);
@@ -22,39 +47,45 @@ export default function GallerySection() {
   }, []);
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-20 bg-gray-50">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-earthGreen text-center mb-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-earthGreen text-center mb-12">
           Our Impact Gallery
         </h2>
 
         {/* Desktop Grid */}
-        <div className="hidden md:grid grid-cols-4 gap-4">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="hidden md:grid grid-cols-4 gap-4"
+        >
           {images.map((img, i) => (
             <motion.div
               key={i}
+              variants={itemVariants}
               whileHover={{ scale: 1.05 }}
-              className="overflow-hidden rounded-lg"
+              className="overflow-hidden rounded-xl shadow-md"
             >
               <Image
                 src={img}
                 width={300}
-                height={200}
+                height={220}
                 alt="EarthServe Gallery"
-                className="object-cover"
+                className="object-cover w-full h-full"
               />
             </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Mobile Slider */}
-        <div className="md:hidden relative h-64 overflow-hidden rounded-lg">
+        <div className="md:hidden relative h-64 overflow-hidden rounded-xl shadow-md">
           <motion.div
             key={index}
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="absolute inset-0"
           >
             <Image

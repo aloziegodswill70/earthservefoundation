@@ -5,7 +5,7 @@ export default function WhatsAppTelegramSection() {
         <h2 className="text-3xl font-bold mb-4">
           Join Our Community
         </h2>
-        <p className="mb-8">
+        <p className="mb-8 text-white">
           Be part of our WhatsApp and Telegram communities.
         </p>
 
